@@ -24,6 +24,6 @@ class AppTest {
         handler.handle(exchange);
 
         String response = os.toString();
-        assertEquals("Java web server is running correctly! GitHub Actions was added!", response);
+        assertEquals("Java web server is running correctly! GitHub Actions was added! Testing...", response);
     }
 }
