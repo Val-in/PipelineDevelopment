@@ -19,7 +19,7 @@ public class App {
     public static class RootHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            String response = "Java web server is running correctly!";
+            String response = "Java web server is running correctly! GitHub Actions was added!";
             exchange.sendResponseHeaders(200, response.length());
             try (OutputStream os = exchange.getResponseBody()) {
                 os.write(response.getBytes());
