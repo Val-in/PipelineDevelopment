@@ -15,4 +15,5 @@ COPY src ./src
 RUN mvn package -B
 
 # Запуск приложения
-CMD ["java", "-jar", "target/DockerConfiguration.jar"]
+CMD ["java", "-jar", "target/DockerConfiguration-1.0-SNAPSHOT-jar-with-dependencies.jar"]
+
