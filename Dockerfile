@@ -4,11 +4,15 @@ FROM eclipse-temurin:17-jre-alpine
 # Рабочая директория
 WORKDIR /app
 
-# Файл, который необходимо скопировать в образ
-COPY out/artifacts/DockerConfiguration_jar/DockerConfiguration.jar app.jar
+# Копируем pom.xml и скачиваем зависимости для кэша
+COPY pom.xml .
+RUN ./mvnw dependency:go-offline -B
 
-# Порт, необходимый для доступа к приложению
-EXPOSE 8080
+# Копируем весь код
+COPY src ./src
 
-# Команда запуска приложения
-CMD ["java", "-jar", "app.jar"]
+# Собираем jar
+RUN ./mvnw package -B
+
+# Запуск приложения
+CMD ["java", "-jar", "target/DockerConfiguration.jar"]

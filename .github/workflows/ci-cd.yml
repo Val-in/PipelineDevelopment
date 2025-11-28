@@ -30,6 +30,19 @@ jobs:
       - name: Test
         run: mvn test
 
+  build-docker:
+    name: Build Docker Image
+    needs: build-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: |
+          docker build -t pipeline-dev:latest .
+
   deploy:
     name: Deploy to Render
     needs: build-test
