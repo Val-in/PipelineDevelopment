@@ -54,7 +54,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>App</mainClass>
+              <mainClass>simpleWeb.App</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
